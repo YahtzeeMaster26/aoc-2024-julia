@@ -13,6 +13,7 @@ solve1(input) = count(safe, input)
 
 remove(list, i) = [list[1:i-1]; list[i+1:end]]
 safetolerant(list) = any(1:length(list) .|> i -> safe(remove(list, i)))
+# alt: safetolerant(list) = any(safe.(remove.((list,), eachindex(list))))
 
 solve2(input) = count(safetolerant, input)
 
